@@ -32,6 +32,6 @@ You are all set.
 
 ## Included Util Classes
 The library contains following classes. Click on class to see the code 
-1. Util.java
-2. ViewPagerAdapter.java
-3. MultipartUtility.java
+1. [Util.java](https://github.com/sagar2093/android-utils/blob/master/android-utils/src/main/java/com/github/sagar2093/androidutils/Util.java)
+2. [ViewPagerAdapter.java](https://github.com/sagar2093/android-utils/blob/master/android-utils/src/main/java/com/github/sagar2093/androidutils/adapter/ViewPagerAdapter.java)
+3. [MultipartUtility.java](https://github.com/sagar2093/android-utils/blob/master/android-utils/src/main/java/com/github/sagar2093/androidutils/network/MultipartUtility.java)
