@@ -2,7 +2,7 @@
 apply from: 'dependencies.gradle'
 
 buildscript {
-    ext.kotlin_version = '1.1.4'
+    ext.kotlin_version = '1.1.4-2'
     repositories {
         google()
         jcenter()
@@ -11,13 +11,11 @@ buildscript {
 
         apply from: 'dependencies.gradle'
 
-        classpath gradlePlugins.android
-        classpath gradlePlugins.kotlin
+        classpath 'com.android.tools.build:gradle:3.0.0-beta2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
         classpath gradlePlugins.bintray
         classpath gradlePlugins.maven
-
-       /* classpath 'com.android.tools.build:gradle:3.0.0-beta2'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"*/
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

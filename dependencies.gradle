@@ -1,7 +1,7 @@
 ext.versions = [
 
-        androidGradlePlugin: '3.0.0-beta2',
-        kotlinGradlePlugin : kotlin_version,
+        //androidGradlePlugin: '3.0.0-beta2',
+       // kotlinGradlePlugin : kotlin_version,
         realmGradlePlugin  : '3.5.0',
         mavenGradlePlugin  : '1.5',
         bintrayGradlePlugin: '1.7.3',
@@ -10,8 +10,8 @@ ext.versions = [
 ]
 
 ext.gradlePlugins = [
-        android: "com.android.tools.build:gradle:$versions.androidGradlePlugin",
-        kotlin : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlinGradlePlugin",
+        //android: "com.android.tools.build:gradle:$versions.androidGradlePlugin",
+        //kotlin : "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version",
         realm  : "io.realm:realm-gradle-plugin:$versions.realmGradlePlugin",
         maven  : "com.github.dcendents:android-maven-gradle-plugin:$versions.mavenGradlePlugin",
         bintray: "com.jfrog.bintray.gradle:gradle-bintray-plugin:$versions.bintrayGradlePlugin"

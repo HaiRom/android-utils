@@ -1,13 +1,11 @@
 apply plugin: 'com.android.library'
 //apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.github.sagar2093'
-
 ext {
     bintrayRepo = 'androidlibrary'
     bintrayName = 'android-utils'
 
-    publishedGroupId = 'com.github.hellooandroid'
+    publishedGroupId = 'com.github.sagar2093'
     libraryName = 'Android Utils'
     artifact = 'android-utils'
 
@@ -30,7 +28,6 @@ ext {
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
-
 
     defaultConfig {
         minSdkVersion 16
