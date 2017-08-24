@@ -9,9 +9,9 @@ Utils codes for faster app development
 
 **Gradle**
 
-1. **It uses jcenter(), you might not need this step**
+1. It uses **jcenter()**, you might not need this step since android uses jcentre() as default repo
 
- Add it in your root build.gradle at the end of repositories:
+   Add it in your root build.gradle at the end of repositories:
 ```gradle
 	allprojects {
 		repositories {
@@ -22,8 +22,11 @@ Utils codes for faster app development
 ```
 
 2. Inside app level **build.gradle** include the following dependency:
-
-> compile 'com.github.sagar2093:android-utils:0.0.1'
+```gradle
+	dependencies {
+	        compile 'com.github.sagar2093:android-utils:0.0.1'
+	}
+```
 
 You are all set.
 
