@@ -1,7 +1,7 @@
 # android-utils
 Utils codes for faster app development
 
-**Note: ** The library is in development and might be unstable.
+**Note:** The library is in development and might be unstable.
 
 [ ![Download](https://api.bintray.com/packages/sagar2093/androidlibrary/android-utils/images/download.svg) ](https://bintray.com/sagar2093/androidlibrary/android-utils/_latestVersion)
 
