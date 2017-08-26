@@ -30,7 +30,7 @@ Utils codes for faster app development
 
 You are all set.
 
-## Used Util Classes
+## Available Util Classes
 The library contains following classes. Click on class to see the code 
 1. [Util.java](https://github.com/sagar2093/android-utils/blob/master/android-utils/src/main/java/com/github/sagar2093/androidutils/Util.java)
 

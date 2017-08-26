@@ -1,4 +1,4 @@
-package com.github.sagar2093.androidutils.network;
+package com.github.sagar2093.androidutils;
 
 
 import java.io.BufferedReader;

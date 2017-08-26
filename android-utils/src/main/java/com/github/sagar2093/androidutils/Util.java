@@ -1,11 +1,20 @@
 package com.github.sagar2093.androidutils;
 
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Build;
+import android.support.annotation.ColorInt;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
+import android.support.customtabs.CustomTabsIntent;
+import android.support.v4.content.ContextCompat;
 import android.text.Html;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.math.BigInteger;
@@ -66,11 +75,42 @@ public class Util {
         Toast.makeText(context, R.string.toast_no_wifi, Toast.LENGTH_LONG).show();
     }
 
+    public static void logError(String msg) {
+        Log.e("LOG_ERROR", msg);
+    }
+
+    public static void logDebug(String msg) {
+        Log.d("LOG_DEBUG", msg);
+    }
+
     public static String fromHtml(String source) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY).toString();
         } else {
             return Html.fromHtml(source).toString();
+        }
+    }
+
+    public static void openCustomTab(Activity mActivity, String url, @ColorInt int toolbarColor) {
+
+        if (isOnline(mActivity, true)) {
+            CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+            builder.setToolbarColor(toolbarColor);
+            builder.setShowTitle(true);
+            CustomTabsIntent customTabsIntent = builder.build();
+            customTabsIntent.launchUrl(mActivity, Uri.parse(url));
+        }
+    }
+
+    public static void openCustomTab(Activity mActivity, String url, @ColorInt int toolbarColor, @NonNull Bitmap closeButtonIcon) {
+
+        if (isOnline(mActivity, true)) {
+            CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+            builder.setToolbarColor(toolbarColor);
+            builder.setShowTitle(true);
+            builder.setCloseButtonIcon(closeButtonIcon);
+            CustomTabsIntent customTabsIntent = builder.build();
+            customTabsIntent.launchUrl(mActivity, Uri.parse(url));
         }
     }
 

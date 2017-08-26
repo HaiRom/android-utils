@@ -1,4 +1,4 @@
-package com.github.sagar2093.androidutils.adapter;
+package com.github.sagar2093.androidutils;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

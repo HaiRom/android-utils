@@ -1,4 +1,4 @@
-package com.github.sagar2093.androidutils.locale;
+package com.github.sagar2093.androidutils;
 
 import android.annotation.TargetApi;
 import android.content.Context;
