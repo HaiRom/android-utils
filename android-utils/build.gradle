@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/hellooandroid/androidutils'
     gitUrl = 'https://github.com/hellooandroid/androidutils.git'
 
-    libraryVersion = '0.0.1'
+    libraryVersion = '0.1.1'
 
     developerId = 'sagar2093'
     developerName = 'Sagar Chapagain'
@@ -53,12 +53,13 @@ dependencies {
     implementation libraries.suportCustomTabs
 
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.0'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
 
 //Add these lines to publish library to bintray
 //Place it at the end of the file
+
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
 

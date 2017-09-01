@@ -3,6 +3,7 @@ package com.github.sagar2093.androidutils;
 import android.text.Editable;
 import android.widget.EditText;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -172,11 +173,11 @@ public class WidgetUtil {
         }
     }
 
-    public static void findTotal(List<EditText> editTextList, EditText etTotal) {
-        new CustomTotalFinder(editTextList, etTotal);
+    public static void findTotal(EditText etTotal, Object dataType, EditText... editTexts) {
+        new CustomTotalFinder(etTotal, dataType, editTexts);
     }
 
-    public static void findDifference(EditText etHigher, EditText etLower, EditText etResult) {
+    public static void findDifferenceInt(EditText etHigher, EditText etLower, EditText etResult) {
         new CustomDifference(etHigher, etLower, etResult);
     }
 
@@ -186,17 +187,21 @@ public class WidgetUtil {
 
     private static class CustomTotalFinder {
         private List<EditText> editTextList;
-        private EditText etTotalValue;
+        private EditText etTotal;
+        private Object dataType;
 
-        public CustomTotalFinder(List<EditText> editTexts, EditText etTotal) {
-            this.editTextList = editTexts;
-            this.etTotalValue = etTotal;
+        public CustomTotalFinder(EditText etTotal, Object dataType, EditText... editTexts) {
+            //this.editTextList = editTexts;
+            this.etTotal = etTotal;
+            this.dataType = dataType;
+            editTextList = new ArrayList<>();
 
-            for (EditText editText : editTextList) {
+            for (EditText editText : editTexts) {
                 editText.addTextChangedListener(new TextWatcher());
+                editTextList.add(editText);
             }
 
-            etTotalValue.setEnabled(false);
+            this.etTotal.setEnabled(false);
         }
 
         private class TextWatcher implements android.text.TextWatcher {
@@ -213,13 +218,30 @@ public class WidgetUtil {
             @Override
             public void afterTextChanged(Editable editable) {
 
-                int sum = 0;
-                for (EditText editText : editTextList) {
-                    int value = getIntValue(editText);
-                    sum = sum + value;
-                }
-                etTotalValue.setText(Integer.toString(sum));
+                if (dataType instanceof Integer) {
+                    int sum = 0;
+                    for (EditText editText : editTextList) {
+                        int value = getIntValue(editText);
+                        sum = sum + value;
+                    }
+                    etTotal.setText(String.valueOf(sum));
 
+                } else if (dataType instanceof Float) {
+                    float sum = 0;
+                    for (EditText editText : editTextList) {
+                        float value = getFloatValue(editText);
+                        sum = sum + value;
+                    }
+                    etTotal.setText(String.valueOf(sum));
+
+                } else if (dataType instanceof Double) {
+                    double sum = 0;
+                    for (EditText editText : editTextList) {
+                        double value = getDoubleValue(editText);
+                        sum = sum + value;
+                    }
+                    etTotal.setText(String.valueOf(sum));
+                }
             }
         }
     }

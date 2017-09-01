@@ -2,4 +2,5 @@
     <string name="app_name">Android Utils</string>
     <string name="toast_no_internet">No Internet Connection</string>
     <string name="toast_no_wifi">No Wifi Connection</string>
+    <string name="warn_invalid_email">Invalid Email</string>
 </resources>
