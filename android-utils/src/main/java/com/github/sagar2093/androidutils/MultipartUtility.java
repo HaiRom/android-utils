@@ -19,8 +19,6 @@ import java.util.List;
 /**
  * This utility class provides an abstraction layer for sending multipart HTTP
  * POST requests to a web server.
- *
- * @author www.codejava.net
  */
 public class MultipartUtility {
     private final String boundary;
@@ -79,7 +77,7 @@ public class MultipartUtility {
     /**
      * Adds a upload file section to the request
      *
-     * @param fieldName  name attribute in <input type="file" name="..." />
+     * @param fieldName  name attribute in
      * @param uploadFile a File to be uploaded
      * @throws IOException exception
      */
