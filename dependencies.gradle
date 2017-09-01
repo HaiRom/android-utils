@@ -11,6 +11,7 @@ ext.versions = [
         playServices        : '11.2.0',
         firebase            : '11.2.0',
         gson                : '2.7.0',
+        constraintLayout     : '1.0.2',
 
         retrofit            : '2.3.0',
         okio                : '1.13.0',
@@ -54,6 +55,7 @@ ext.libraries = [
         suportRecyclerView        : "com.android.support:recyclerview-v7:$versions.supportLib",
         supportGridLayout         : "com.android.support:gridlayout-v7:$versions.supportLib",
         suportCustomTabs          : "com.android.support:customtabs:$versions.supportLib",
+        constraintLayout          : "com.android.support.constraint:constraint-layout:$versions.constraintLayout",
 
         retrofit                  : "com.squareup.retrofit2:retrofit:$versions.retrofit",
         retrofitConverterGson     : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
