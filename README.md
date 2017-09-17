@@ -24,7 +24,7 @@ Utils codes for faster app development
 2. Inside app level **build.gradle** include the following dependency:
 ```gradle
 	dependencies {
-	        compile 'com.github.sagar2093:android-utils:0.1.1'
+	        compile 'com.github.sagar2093:android-utils:0.1.2'
 	}
 ```
 
