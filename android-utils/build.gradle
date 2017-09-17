@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/hellooandroid/androidutils'
     gitUrl = 'https://github.com/hellooandroid/androidutils.git'
 
-    libraryVersion = '0.1.1'
+    libraryVersion = '0.1.2'
 
     developerId = 'sagar2093'
     developerName = 'Sagar Chapagain'

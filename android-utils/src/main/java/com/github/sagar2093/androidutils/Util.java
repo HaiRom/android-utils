@@ -15,7 +15,6 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.support.customtabs.CustomTabsIntent;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
@@ -67,24 +66,32 @@ public class Util {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
     }
 
-    public static void toastLong(Context context, @StringRes int messageId) {
+    public static void toast(Context context, @StringRes int messageId) {
         Toast.makeText(context, messageId, Toast.LENGTH_SHORT).show();
+    }
+
+    public static void toastLong(Context context, String msg) {
+        Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+    }
+
+    public static void toastLong(Context context, @StringRes int messageId) {
+        Toast.makeText(context, messageId, Toast.LENGTH_LONG).show();
     }
 
     public static void toastNoInternet(Context context) {
         Toast.makeText(context, R.string.toast_no_internet, Toast.LENGTH_LONG).show();
     }
 
+    public static void toastNoInternet(Context context, @StringRes int message) {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+    }
+
     public static void toastNoWifi(Context context) {
         Toast.makeText(context, R.string.toast_no_wifi, Toast.LENGTH_LONG).show();
     }
 
-    public static void logError(String msg) {
-        Log.e("LOG_ERROR", msg);
-    }
-
-    public static void logDebug(String msg) {
-        Log.d("LOG_DEBUG", msg);
+    public static void toastNoWifi(Context context, @StringRes int msg) {
+        Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
     }
 
     public static String fromHtml(String source) {
@@ -122,6 +129,17 @@ public class Util {
         });
     }
 
+    public static void setBackNavigation(final Activity activity, Toolbar toolbar, @DrawableRes int resId) {
+        //Navigation Icon
+        toolbar.setNavigationIcon(resId);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.onBackPressed();
+            }
+        });
+    }
+
     /**
      * Restarts an activity wherever the method is run.
      *
@@ -142,44 +160,6 @@ public class Util {
         }
     }
 
-    public static boolean isEmailValid(String email) {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
-    }
-
-    public static boolean isEmailValid(EditText editText, Context context) {
-        boolean valid = android.util.Patterns.EMAIL_ADDRESS.matcher(editText.getText().toString().trim()).matches();
-        if (valid) {
-            editText.setError(null);
-        } else {
-            editText.setError(context.getString(R.string.warn_invalid_email));
-            editText.requestFocus();
-        }
-        return valid;
-    }
-
-    public static void openCustomTab(Activity mActivity, String url, @ColorInt int toolbarColor) {
-
-        if (isOnline(mActivity, true)) {
-            CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-            builder.setToolbarColor(toolbarColor);
-            builder.setShowTitle(true);
-            CustomTabsIntent customTabsIntent = builder.build();
-            customTabsIntent.launchUrl(mActivity, Uri.parse(url));
-        }
-    }
-
-    public static void openCustomTab(Activity mActivity, String url, @ColorInt int toolbarColor, @NonNull Bitmap closeButtonIcon) {
-
-        if (isOnline(mActivity, true)) {
-            CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-            builder.setToolbarColor(toolbarColor);
-            builder.setShowTitle(true);
-            builder.setCloseButtonIcon(closeButtonIcon);
-            CustomTabsIntent customTabsIntent = builder.build();
-            customTabsIntent.launchUrl(mActivity, Uri.parse(url));
-        }
-    }
-
     public static String getMD5(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -193,6 +173,30 @@ public class Util {
             return hashtext;
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public static void logDebug(String TAG, String msg) {
+        Log.d("LOG_DEBUG : " + TAG, msg);
+    }
+
+    public static void logError(String TAG, String msg) {
+        Log.e("LOG_ERROR : " + TAG, msg);
+    }
+
+    /*for this library only, copy to your helper if need*/
+    @Deprecated
+    public static void logDebug(String msg) {
+        if (BuildConfig.DEBUG) {
+            Log.d("LOG_DEBUG", msg);
+        }
+    }
+
+    /*for this library only, copy to your helper if need*/
+    @Deprecated
+    public static void logError(String msg) {
+        if (BuildConfig.DEBUG) {
+            Log.e("LOG_ERROR", msg);
         }
     }
 }

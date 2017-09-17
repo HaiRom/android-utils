@@ -1,6 +1,7 @@
 package com.github.sagar2093.androidutils;
 
 import android.text.Editable;
+import android.util.Log;
 import android.widget.EditText;
 
 import java.util.ArrayList;
@@ -13,6 +14,12 @@ import java.util.List;
  */
 
 public class WidgetUtil {
+
+    private static final String TAG = WidgetUtil.class.getSimpleName();
+    private static final String INVALID_INT = "Invalid Integer Value";
+    private static final String INVALID_LONG = "Invalid Long Value";
+    private static final String INVALID_FLOAT = "Invalid Float Value";
+    private static final String INVALID_DOUBLE = "Invalid Double Value";
 
     public static int getIntValue(EditText editText) {
         String str = editText.getText().toString().trim();
@@ -40,7 +47,7 @@ public class WidgetUtil {
                 editText.setText(String.valueOf(value));
             }
         } catch (NumberFormatException ex) {
-            Util.logDebug("Not valid Integer");
+            Util.logError(TAG, INVALID_INT);
         }
     }
 
@@ -70,7 +77,8 @@ public class WidgetUtil {
                 editText.setText(String.valueOf(value));
             }
         } catch (NumberFormatException ex) {
-            Util.logDebug("Not valid long value");
+            Util.toast(editText.getContext(), INVALID_LONG);
+            Util.logError(TAG, INVALID_LONG);
         }
     }
 
@@ -100,7 +108,8 @@ public class WidgetUtil {
                 editText.setText(String.valueOf(value));
             }
         } catch (NumberFormatException ex) {
-            Util.logDebug("Not valid float value");
+            Util.toast(editText.getContext(), INVALID_FLOAT);
+            Util.logError(TAG, INVALID_FLOAT);
         }
     }
 
@@ -130,7 +139,8 @@ public class WidgetUtil {
                 editText.setText(String.valueOf(value));
             }
         } catch (NumberFormatException ex) {
-            Util.logDebug("Not valid Double value");
+            Util.toast(editText.getContext(), INVALID_DOUBLE);
+            Util.logError(TAG, INVALID_DOUBLE);
         }
     }
 
